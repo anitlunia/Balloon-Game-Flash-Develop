@@ -2,13 +2,17 @@ package
 {
 	import flash.display.Sprite;
 	import flash.events.Event;
+	import net.hires.debug.Stats;
+	import starling.core.Starling;
 	
 	/**
 	 * ...
-	 * @author Oxana
+	 * @author Yo
 	 */
 	public class Main extends Sprite 
 	{
+		private var stats:Stats;
+		private var starling:Starling;
 		
 		public function Main():void 
 		{
@@ -20,6 +24,12 @@ package
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			// entry point
+			
+			stats = new Stats();
+			addChild(stats);
+			
+			starling = new Starling(Game, stage);
+			starling.start();
 		}
 		
 	}
